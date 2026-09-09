@@ -21,3 +21,7 @@ Instead of relying on flat statistical probability or heavy cloud dependencies, 
 1. Install dependencies:
    ```bash
    npm install
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
