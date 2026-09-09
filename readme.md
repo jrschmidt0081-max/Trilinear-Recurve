@@ -22,10 +22,10 @@ Instead of relying on flat statistical probability or heavy cloud dependencies, 
    ```bash
    npm install
 
-2. Run basic test suite
+2. Run basic test suite:
  node --experimental-strip-types test.ts
 
-3. Have fun there are plenty of refinements to make. 
+3. Have fun build stuff  
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).  
