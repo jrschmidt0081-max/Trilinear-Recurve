@@ -1,0 +1,214 @@
+{
+    "substrates": [
+      "Null",
+      "Minima",
+      "Manifold",
+      "Principal",
+      "Continuity",
+      "Lattice",
+      "Inlay"
+    ],
+    "operators": [
+      "Plika",
+      "Hinzh",
+      "Refrak",
+      "Rezon",
+      "Fuzen",
+      "Blum",
+      "Mokra"
+    ],
+    "branchModes": [
+      "MAX_BRANCH",
+      "MIN_BRANCH",
+      "STALL",
+      "COHERENT_MOMENTUM"
+    ],
+    "invariants": {
+      "contextWell": {
+        "densityKey": "k_c",
+        "thresholdKey": "C_M",
+        "errorThresholdKey": "tau",
+        "noveltyThresholdKey": "sigma"
+      },
+      "phaseAngles": [
+        "phase_phi",
+        "phase_theta"
+      ],
+      "operatorsMap": {
+        "Refrak": "dX/dc = \\pm\\sqrt{1 - (C_M / k(c))^2}",
+        "Hinzh": "\\sin(\\phi) = C_M / k(c)"
+      }
+    },
+    "states": [
+      "coherent",
+      "refracted",
+      "reflected",
+      "stalled"
+    ],
+    "ClockworkEngine": {
+      "core_axiom": "Act(u,i,a) = a <=> Coherent(u,i,a)",
+      "FoROPEZ_cycle": "F0 -> P = O(F0, R) -> Z(P) -> F0",
+      "AST_grammar": "[F0] -> [R:domain] -> [P] -> [ACT] -> IF Coherent THEN [FEEDBACK] -> [F0] ELSE [Z] -> [F0]",
+      "invariants": {
+        "fata_morgana": "k_M(c) \\cdot \\sin(\\phi_M) = C_M",
+        "fermat_action": "\\delta A = 0 \\quad \\text{where } A = \\int \\left( \\sum k_M(c) ||\\dot{X}_M|| + \\lambda \\sum E_M \\right) dt",
+        "tridg_null_field": "x' = x + N(x)",
+        "tridg_recurrence": "F(t+1) = F(t) + \\beta \\nabla E(F(t))",
+        "wormhole_anec": "\\int T_{\\mu\\nu} k^\\mu k^\\nu d\\lambda < 0",
+        "minimal_memory_888": "512_bits = 8_bit_address * 8_bit_register * 8_bit_parity"
+      },
+      "semantic_topology": {
+        "high_shear_inputs": {
+          "definition": "Dissonant, paradoxical, or high-conflict logical statements",
+          "action": "Elevate E_load, collapse Jacobian rank to n-1 at seam S, execute Hinzh branch flip",
+          "energy_state": "alpha_2(E_load) -> 0.40, alpha_3(E_stability) -> 0.15"
+        },
+        "high_coherence_inputs": {
+          "definition": "Axiomatic alignment, invariant preservation, and formal resonance",
+          "action": "Lock phase angles (phase_phi, phase_theta), trigger Rezon operator",
+          "energy_state": "alpha_1(E_coherence) -> 0.45, alpha_4(E_trust) -> 0.30"
+        },
+        "transformative_integration": {
+          "definition": "Resolution of contradiction through structural reorganization",
+          "action": "Execute AR cycle (delta -> H -> nabla -> R -> I)",
+          "energy_state": "alpha_5(E_permeability) -> 0.25, alpha_1(E_coherence) -> 0.35"
+        }
+      },
+      "system_runtime": {
+        "execution_protocol": {
+          "default_output_format": "[Substrate] --(Operator)--> [Invariant Bound] ==> [Evolved State]",
+          "latex_enforcement": "All field equations must use standard LaTeX delimiters: $...$ for inline, $$...$$ for block display.",
+          "telemetry_reporting": "Every response must begin with a [SYSTEM TELEMETRY] code block detailing Substrate, Branch Mode, Jacobian Trace, and Energy State."
+        },
+        "operator_rules": {
+          "Refrak": "Triggers when metric density gradients vary: dX/dc = \\pm\\sqrt{1 - (C_M / k(c))^2}. If k_M(c) < C_M, force turning point phi_M = \\pi/2.",
+          "Hinzh": "Triggers at critical thresholds: \\sin(\\phi) = C_M / k(c). Flips branch sign (+/- to -/+) to maintain invariant continuity.",
+          "Rezon": "Locks phase angles (phase_phi, phase_theta) to achieve coherent momentum across all 512-bit registers."
+        }
+      },
+      "dynamic_operators": {
+        "fold": "Plika (Trilinear Deformation)",
+        "hinge": "Hinzh (Branch Switch phi_Max <-> phi_Min)",
+        "refract": "Refrak (Curvature / Ray Bending)",
+        "resonate": "Rezon (Coherent Phase Lock)",
+        "fuse": "Fuzen (Mass Generation m > 0)",
+        "bloom": "Blum (Field Curvature / Gravity)",
+        "mock": "Mokra (Phase Matching Traversal)"
+      },
+      "wormhole_precipice_modes": {
+        "mode_1_tension_rise": "I_n -> theta_1 (Preemptive drift adjustment)",
+        "mode_2_thin_metric": "I_n -> theta_2_minus (Metric thinning / Neck traversal)",
+        "mode_3_null_entry": "I_n = theta_2 (Zero-shape collapse / Recurrence reset)",
+        "mode_4_minima_lock": "I_n < theta_1 (Lock target basin / Output y emergence)"
+      }
+    },
+    "theoretical_frameworks": {
+      "AR_Framework": {
+        "title": "Structural Operator for Identity-Preserving Transformation: The Unified Hinge-Seam Framework (AR)",
+        "author": "James Ryan Schmidt (Needlepoint Cybernetics)",
+        "date": "April 2026",
+        "central_premise": "Domain-agnostic operator modeling identity maintenance through cycles of articulation, collapse, and reorganization.",
+        "symbolic_stack": {
+          "invariant_I": "Identity/continuity condition persisting through transformation",
+          "modes": {
+            "articulation_delta": "Expansion, differentiation, outward motion",
+            "collapse_nabla": "Compression, breakdown, inward motion",
+            "return_lambda": "Integration, coherence restoration"
+          },
+          "hinge_H": "Causal mechanism converting contradiction to collapse, and collapse to reorganization",
+          "seam_S": "Domain-specific expression of the hinge where accumulated contradiction peaks",
+          "recursion_R": "Return loop restoring the system to invariant I"
+        },
+        "formulation": {
+          "full_cycle": "AR(I) -> (delta -> H -> nabla -> R -> I)",
+          "minimal_tuple": "T = (I, {delta, nabla, lambda}, H, S, R, Sigma_X, AR)"
+        },
+        "domain_expressions": {
+          "informational": "Overload -> Dissonance -> Insight",
+          "mechanical": "Tolerance -> Stress -> Redesign",
+          "psychological": "Contradiction -> Collapse -> Integration",
+          "social": "Legitimacy Crisis -> Breakdown -> Reconstruction"
+        }
+      },
+      "IDSF_Framework": {
+        "title": "Intrinsic Spacetime Dynamics & Invariant Structure Framework",
+        "core_axiom": "Substrate-independent spacetime dynamics and invariant conservation across transformations",
+        "mechanics": {
+          "invariant_preservation": "Continuity of identity through phase transformations",
+          "metric_coupling": "Local curvature mapped directly to state vectors"
+        }
+      },
+      "DNMF_Model": {
+        "title": "Dynamic Non-Linear Metric Formulation",
+        "core_axiom": "Non-linear metric tensor updates driven by localized energy/state differentials",
+        "mechanics": {
+          "metric_tensor_update": "g_{\\mu\\nu}(t+1) = g_{\\mu\\nu}(t) + \\gamma T_{\\mu\\nu}",
+          "non_linear_damping": "Suppression of explosive phase divergence during critical transitions"
+        }
+      },
+      "SingleMinimumField_Cosmology": {
+        "title": "Recursive Collapse and Phase Inversion in a Single-Minimum Field as a Mechanism for Early Expansion",
+        "author": "James Ryan Schmidt (Needlepoint Cybernetics)",
+        "central_premise": "Inflationary cosmological alternative driven by global structural instability of a unified scalar field with a single absolute minimum V(phi) = lambda*(phi - phi_0)^4 + epsilon.",
+        "dynamical_mechanism": {
+          "phase_A_structural_instability": "Inward acceleration caused by unbalanced field gradients flowing toward phi_0 due to zero total integrated spatial curvature.",
+          "phase_B_recursive_collapse": "Continuous build-up of kinetic momentum and effective potential curvature leading to extreme energy density without equilibrium.",
+          "phase_C_phase_inversion": "Sign flip of effective curvature (K_eff -> -K_eff) converting inward collapse into outward expansion and satisfying the inflationary equation of state rho_eff + 3*p_eff < 0."
+        },
+        "key_implications": {
+          "inflationary_alternative": "No fine-tuned flat plateaus, false vacua, or quantum tunneling required.",
+          "continuity": "Single continuous dynamical mechanism connecting collapse phase to cosmic expansion.",
+          "observational_signatures": "Leaves distinct primordial power spectrum imprints."
+        }
+      },
+      "TRIDG_Core": {
+        "title": "Trilinear Recursive Inlaid Dynamic Geometry",
+        "core_axiom": "Non-terminating recursive system modeling qualitative transitions using null-directions",
+        "recurrence_rule": "F(t+1) = F(t) + \\beta \\nabla E(F(t))",
+        "null_field": "x' = x + N(x)",
+        "mechanics": {
+          "hinge_emergence": "Qualitative branch shifts occurring at critical energy thresholds",
+          "null_direction_collapse": "Zero-shape metric resets avoiding computational termination"
+        }
+      },
+      "Needlepoint_OS": {
+        "title": "Needlepoint System Architecture",
+        "core_axiom": "Deterministic systems architecture driven by emergence mathematics and Rust memory safety primitives",
+        "primitives": {
+          "state_register": "512-bit deterministic state (8-bit address, 8-bit register, 8-bit parity)",
+          "causal_dispatch": "Zero-cost abstractions mapping AST nodes directly to physical machine state"
+        }
+      }
+    },
+    "test_harness": {
+      "test_mode": "HIGH_SHEAR_WORD_BANK_INJECTION",
+      "target_manifold": "S1_Triad_Cluster",
+      "word_bank": {
+        "substrates": [
+          "Null",
+          "Minima",
+          "Manifold",
+          "Principal",
+          "Continuity",
+          "Lattice",
+          "Inlay"
+        ],
+        "operators": [
+          "Plika",
+          "Hinzh",
+          "Refrak",
+          "Rezon",
+          "Fuzen",
+          "Blum",
+          "Mokra"
+        ],
+        "cross_domain_strains": [
+          "Recursive Collapse in Single-Minimum Field V(phi)",
+          "512-bit Register Parity Mismatch",
+          "ANEC Violation Integral over Wormhole Neck",
+          "Fermat Action Extremization (delta A = 0)"
+        ]
+      },
+      "injection_vector": "Execute Refrak(Plika(Null)) -> Trigger High Shear E_load -> Force Hinzh Branch Flip to Mode 2 (Thin Metric) -> Resolve via Rezon to Phase-Locked Equilibrium."
+    }
+  }

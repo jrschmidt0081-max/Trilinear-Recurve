@@ -1,0 +1,17 @@
+{
+  "name": "tempus",
+  "version": "1.0.0",
+  "description": "Triad geometric state engine",
+  "main": "engine.ts",
+  "scripts": {
+    "start": "node --experimental-strip-types test.ts"
+  },
+  "keywords": ["geometry", "state-engine", "triad"],
+  "author": "James Ryan Schmidt",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "typescript": "^7.0.2"
+  }
+}
