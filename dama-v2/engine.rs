@@ -116,7 +116,6 @@ impl<const N: usize, const M: usize> Engine<N, M> {
     pub fn tick(&mut self, chronon: Chronon) {
         let dt = chronon.as_scaled_f64();
 
-        // Plug our history buffer back in: calculate historical center of gravity
         if self.history.len > 0 {
             let historical_center = self.history.fold_recurrent(
                 [0.0, 0.0, 0.0],
@@ -128,11 +127,11 @@ impl<const N: usize, const M: usize> Engine<N, M> {
                 },
             );
 
-            // Apply historical drift correction back to the manifold vertices
+            let coupling = (self.dynamics_state.operator_pressure.abs() + 0.01).clamp(0.0, 0.1);
             for vertex in &mut self.manifold.vertices {
                 for j in 0..3 {
                     let drift = vertex.position[j] - historical_center[j];
-                    vertex.momentum[j] -= drift * 0.02;
+                    vertex.momentum[j] -= drift * coupling;
                 }
             }
         }
@@ -147,7 +146,17 @@ impl<const N: usize, const M: usize> Engine<N, M> {
 
         let tensor_mod = self.tensor.get_pivot(0, 1) + self.dynamics_state.operator_pressure;
         self.manifold.evolve(dt, tensor_mod);
-        self.tensor.transform(|x| x + 0.001);
+
+        // TRIDG Recurrence Rule: F(t+1) = F(t) + beta * grad_E(F(t))
+        // Bounded by stability thresholds, driven by local collapse tension
+        let beta = 0.05; 
+        let collapse_tension = self.dynamics_state.collapse_tension;
+
+        self.tensor.transform(|x| {
+            // Gradient evaluation derived from state tensor and active collapse tension
+            let grad_e = x * (1.0 + collapse_tension);
+            x + beta * grad_e
+        });
 
         self.ticks += 1;
     }
