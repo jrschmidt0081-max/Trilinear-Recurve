@@ -25,7 +25,7 @@ Instead of relying on flat statistical probability or heavy cloud dependencies, 
 2. Run basic test suite:
  node --experimental-strip-types test.ts
 
-3. Have fun build stuff  
+Note: you will find an assortment under the V2 branch this will include related projects and testing. 
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).  
