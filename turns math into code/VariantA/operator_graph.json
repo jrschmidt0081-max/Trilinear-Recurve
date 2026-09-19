@@ -1,0 +1,203 @@
+{
+  "operators": {
+    "bloom_wave_operator": {
+      "formula": "engine.bloom_density = engine.bloom_density + 0.02 * math.sin(engine.theta * 0.5)"
+    },
+
+    "bloom_entropy_amplifier": {
+      "formula": "engine.bloom_density = engine.bloom_density + (engine.comet_entropy * 0.005)"
+    },
+
+    "halo_convexity_operator": {
+      "formula": "engine.halo_convexity = 1.0 / (1.0 + abs(engine.drift_avg * 0.5))"
+    },
+
+    "drift_shell_operator": {
+      "formula": "engine.shell_radius = engine.s_star_avg_radius + (engine.drift_avg * 0.2)"
+    },
+
+    "shell_growth_operator": {
+      "formula": "engine.shell_radius = engine.shell_radius + 0.001 * math.cos(engine.theta)"
+    },
+
+    "orbital_cluster_operator": {
+      "formula": "engine.cluster_phase = (engine.cluster_phase + (engine.s_star_avg_omega * 0.3)) % (2 * math.pi)"
+    },
+
+    "cluster_coordinate_operator": {
+      "formula": "engine.cluster_x = math.cos(engine.cluster_phase); engine.cluster_y = math.sin(engine.cluster_phase)"
+    },
+
+    "cluster_stability_operator": {
+      "formula": "engine.cluster_phase = engine.cluster_phase + 0.0005 * (engine.phi_1 - engine.phi_2)"
+    },
+
+    "entropy_wave_operator": {
+      "formula": "engine.entropy_wave = math.sin(engine.comet_entropy * 0.1)"
+    },
+
+    "entropy_bloom_coupler": {
+      "formula": "engine.bloom_density = engine.bloom_density + engine.entropy_wave * 0.01"
+    },
+
+    "multi_frequency_forcer": {
+      "formula": "engine.multi_freq = math.sin(engine.theta) + math.sin(engine.theta * 2.0) * 0.5"
+    },
+
+    "multi_freq_bloom_coupler": {
+      "formula": "engine.bloom_density = engine.bloom_density + engine.multi_freq * 0.005"
+    },
+   
+    "resonance_lock_operator": {
+      "formula": "engine.resonance_lock = abs(engine.phi_1 - engine.phi_2) < engine.resonance_threshold"
+    },
+
+    "gear_coupling": {
+      "formula": "engine.theta_2 = engine.theta_1 * (engine.r1 / engine.r2)"
+    },
+
+    "escapement_cycle": {
+      "formula": "engine.theta = engine.theta + engine.tick_size if engine.oscillation_crosses_zero else engine.theta"
+    },
+
+    "pendulum_regulator": {
+      "formula": "engine.period = engine.k * (engine.length ** 0.5)"
+    },
+
+    "resonance_coupler": {
+      "formula": "engine.phi_1 -= engine.sync_rate * (engine.phi_1 - engine.phi_2); engine.phi_2 += engine.sync_rate * (engine.phi_1 - engine.phi_2)"
+    },
+
+    "tourbillon_compensator": {
+      "formula": "engine.drift_avg = (engine.drift_avg + engine.drift_current) / 2"
+    },
+
+    "flow_regulator": {
+      "formula": "engine.flow_rate = engine.flow_constant"
+    },
+
+    "burn_rate_regulator": {
+      "formula": "engine.burn_rate = engine.burn_constant"
+    },
+
+    "celestial_cycle_operator": {
+      "formula": "engine.theta = (engine.theta + engine.omega) % engine.cycle_length"
+    },
+
+    "core_curvature_operator": {
+      "formula": "engine.core_horizon = (2 * engine.G * engine.core_mass) / (engine.c ** 2)"
+    },
+
+    "s_star_orbit_operator": {
+      "formula": "engine.s_star_phase = (engine.s_star_phase + engine.s_star_avg_omega) % (2 * math.pi)"
+    },
+
+    "s_star_drift_operator": {
+      "formula": "engine.s_star_avg_radius = engine.s_star_avg_radius + engine.s_star_radial_drift"
+    },
+
+    "s_star_eccentricity_operator": {
+      "formula": "engine.s_star_eccentricity = max(0.0, min(1.0, engine.s_star_eccentricity + engine.s_star_ecc_drift))"
+    },
+
+    "comet_orbit_operator": {
+      "formula": "engine.comet_phase = (engine.comet_phase + engine.comet_omega) % (2 * math.pi)"
+    },
+
+    "comet_drift_operator": {
+      "formula": "engine.comet_radius = engine.comet_radius + engine.comet_drift"
+    },
+
+    "comet_eccentricity_operator": {
+      "formula": "engine.comet_eccentricity = max(0.0, min(1.0, engine.comet_eccentricity))"
+    },
+
+    "comet_entropy_operator": {
+      "formula": "engine.comet_entropy = abs(engine.comet_radius * engine.comet_drift)"
+    }
+  },
+
+  "invariants": {
+    "entropy_wave_invariant": {
+      "formula": "abs(engine.entropy_wave) <= 1.0"
+    },
+
+    "multi_freq_invariant": {
+      "formula": "abs(engine.multi_freq) <= 2.0"
+    },
+    "bloom_density_invariant": {
+      "formula": "engine.bloom_density >= 0.0"
+    },
+
+    "halo_convexity_invariant": {
+      "formula": "engine.halo_convexity <= 1.0"
+    },
+
+    "shell_radius_invariant": {
+      "formula": "engine.shell_radius >= 0.0"
+    },
+
+    "cluster_coordinate_invariant": {
+      "formula": "(engine.cluster_x ** 2 + engine.cluster_y ** 2) <= 1.05"
+    },
+
+    "gear_ratio_invariant": {
+      "formula": "engine.theta_1 / engine.theta_2 == engine.r2 / engine.r1"
+    },
+
+    "escapement_invariant": {
+      "formula": "engine.theta % engine.tick_size == 0"
+    },
+
+    "pendulum_period_invariant": {
+      "formula": "engine.period == engine.k * (engine.length ** 0.5)"
+    },
+
+    "resonance_invariant": {
+      "formula": "abs(engine.phi_1 - engine.phi_2) < engine.resonance_threshold"
+    },
+
+    "tourbillon_invariant": {
+      "formula": "engine.drift_avg == 0"
+    },
+
+    "flow_rate_invariant": {
+      "formula": "engine.flow_rate == engine.flow_constant"
+    },
+
+    "burn_rate_invariant": {
+      "formula": "engine.burn_rate == engine.burn_constant"
+    },
+
+    "celestial_cycle_invariant": {
+      "formula": "engine.theta % engine.cycle_length == 0"
+    },
+
+    "core_horizon_invariant": {
+      "formula": "engine.core_radius == (2 * engine.G * engine.core_mass) / (engine.c ** 2)"
+    },
+
+    "s_star_kepler_invariant": {
+      "formula": "engine.s_star_period ** 2 == engine.kepler_k * (engine.s_star_avg_radius ** 3)"
+    },
+
+    "s_star_angular_momentum_invariant": {
+      "formula": "engine.s_star_L == engine.s_star_mass * (engine.s_star_avg_radius ** 2) * engine.s_star_avg_omega"
+    },
+
+    "comet_radius_invariant": {
+      "formula": "engine.comet_radius >= 0.0"
+    },
+
+    "comet_entropy_invariant": {
+      "formula": "engine.comet_entropy >= 0.0"
+    },
+
+    "comet_ecc_invariant": {
+      "formula": "engine.comet_eccentricity <= 1.0"
+    }
+  },
+
+  "watchers": {},
+  "collapse_rules": {}
+}
