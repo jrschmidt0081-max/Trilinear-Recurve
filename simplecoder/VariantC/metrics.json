@@ -1,0 +1,42 @@
+{
+    "coherence_law": "For all (u,i,a) in U×I×A: Act(u,i,a) = a ⇔ Coherent(u,i,a)",
+    "zero_frame_invariant": "∀x, x ∈ 0-frame",
+    "meaning_recognition_invariant": "M(e) = Recognize(e | Invariants) ⇔ Coherent(e)",
+    "gemini_lensing_invariant": "L_λ(Ψ) = P_Q(Ψ | 137) ⇔ Tr(J_L) = 0",
+    "erdos_tarun_structure": "θ_k = φ_k * 2π ; (X_k, Y_k) = (cos θ_k, sin θ_k)",
+    "spine_recurrence": "F(t+1) = F(t) + β · ∇E(F(t))",
+    "entropy_gradient": "ΔH = H(t+1) − H(t)",
+    "renewal_operator": "x_{t+1} = x_t + Δx",
+    "internal_drift_recursion": "φ_{t+1} = φ_t + ν",
+    "outer_rotation_recursion": "θ_{t+1} = θ_t + ω",
+    "omega_operators": {
+        "omega1_self_instantiator": {
+            "enabled": true,
+            "description": "Bootstraps system state and core axioms."
+        },
+        "omega2_sovereign_ignition": {
+            "enabled": true,
+            "description": "Ignites phase velocity and angular momentum."
+        },
+        "omega3_integrator": {
+            "enabled": true,
+            "description": "Integrates gradient steps over active trajectory."
+        },
+        "omega4_catalyst": {
+            "enabled": true,
+            "description": "Modulates internal drift rates and phase variance."
+        },
+        "omega5_watcher": {
+            "enabled": true,
+            "triggers": {
+                "max_recursion_depth": 1000000,
+                "stagnation_threshold": 0.0001,
+                "stagnation_patience": 3
+            },
+            "actions": {
+                "on_max_depth": "HARD_EXIT",
+                "on_stagnation": "DOWNSHIFT_PERTURBATION"
+            }
+        }
+    }
+}
