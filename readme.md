@@ -25,7 +25,7 @@ Instead of relying on flat statistical probability or heavy cloud dependencies, 
 2. Run basic test suite:
  node --experimental-strip-types test.ts
 
-3. Have fun build stuff  
+There is a better demonstration of the reasoner in the sub directory. Simplecoder does nothing it was just me messing around with code.  
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).  
