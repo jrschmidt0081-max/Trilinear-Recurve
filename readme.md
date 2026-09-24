@@ -25,7 +25,14 @@ Instead of relying on flat statistical probability or heavy cloud dependencies, 
 2. Run basic test suite:
  node --experimental-strip-types test.ts
 
-There is a better demonstration of the reasoner in the sub directory. All are works in progress the simple coder is not a working demo or meant to be one. Its boilerplates and problems that need solved.  
+There is a better demonstration of the reasoner in the sub directory. 
+
+SIMPLECODER
+This is basically concept art. More than anything serves to show metrics that are otherwise baked in. 
+
+EXAMPLERSI
+This is an example of safe control theory driven RSI in the style of simplecoder. 
+
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).  
