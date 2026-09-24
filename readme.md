@@ -28,10 +28,10 @@ Instead of relying on flat statistical probability or heavy cloud dependencies, 
 There is a better demonstration of the reasoner in the sub directory. 
 
 SIMPLECODER
-This is basically concept art. More than anything serves to show metrics that are otherwise baked in. 
+This is basically concept art. More than anything it serves to show the metrics that are otherwise baked in. 
 
 EXAMPLERSI
-This is an example of safe control theory driven RSI in the style of simplecoder. 
+Simple example of RSI. 
 
 ## License
 
