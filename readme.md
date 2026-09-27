@@ -8,7 +8,7 @@ This is the concept of the project
 
 EXAMPLERSI
 
-its recursive and it learns :P
+How control theory works in RSI a very simple conceptual. 
 
 TRIADIC CORE
 
