@@ -16,7 +16,7 @@ Physics engine TRIDG framework operators refined through industrial RSI or mains
 
 GEOMETRIC REASONING
 
-the testrange folder demonstrates as far as I am willing to go with.  
+The testrange folder. Cargo run and pick two words from the bank.   
 
 ## License
 
