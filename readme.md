@@ -1,6 +1,6 @@
 DAMA: Dynamic Adaptive Memory Allocation
 
-This is the overall project not a finished work. I write math so bear with me on the code still trying to figure this out. 
+This is the overall project not a finished work. I write math primarily. 
 
 SIMPLECODER
 
